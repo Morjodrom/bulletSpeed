@@ -31,6 +31,13 @@
       "top": -24.85,
       "left": 19.2,
       "attrs": { "value": "10000" }
+    },
+    {
+      "type": "wokwi-tm1637-7segment",
+      "id": "sevseg1",
+      "top": -201.64,
+      "left": -213.77,
+      "attrs": { "color": "red" }
     }
   ],
   "connections": [
@@ -41,7 +48,10 @@
     [ "btn1:2.l", "r2:2", "green", [ "h0" ] ],
     [ "r2:1", "uno:GND.1", "black", [ "v0", "h-19.2", "v19.2", "h115.2" ] ],
     [ "r2:2", "uno:3", "green", [ "v0", "h152.4" ] ],
-    [ "r1:2", "uno:GND.3", "black", [ "v0", "h-1.2", "v268.8", "h-144" ] ]
+    [ "r1:2", "uno:GND.3", "black", [ "v0", "h-1.2", "v268.8", "h-144" ] ],
+    [ "sevseg1:GND", "uno:GND.2", "black", [ "h0", "v384", "h211.2" ] ],
+    [ "sevseg1:CLK", "uno:4", "yellow", [ "h0" ] ],
+    [ "sevseg1:DIO", "uno:5", "blue", [ "h0" ] ]
   ],
   "dependencies": {}
 }
