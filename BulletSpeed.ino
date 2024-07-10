@@ -32,6 +32,7 @@ void setup()
     attachInterrupt(digitalPinToInterrupt(PIN_SPEED_END), triggerInterruptEnd, RISING);
 }
 
+bool isShowingSpeed = false;
 void loop()
 {
     if(interruptedStart > 0 && interruptedEnd > 0){
@@ -49,6 +50,12 @@ void loop()
         #endif
         interruptedStart = 0;
         interruptedEnd = 0;
+    }
+
+    if(isShowingSpeed && (interruptedEnd > 0 || interruptedStart > 0)){
+        disp.clear();
+        disp.display(_dash, _dash, _dash, _dash);
+        isShowingSpeed = false;
     }
 }
 
@@ -85,4 +92,6 @@ void printSpeed(float speedMPerS)
             disp.display(2, 0);
         }
     }
+
+    isShowingSpeed = true;
 }
