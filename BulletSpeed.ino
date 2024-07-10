@@ -19,7 +19,6 @@ void setup()
 {
     #ifdef DEBUG
     Serial.begin(9600);
-    Serial.print("Start,end");
     #endif
 
     disp.clear();
@@ -76,13 +75,10 @@ void printSpeed(float speedMPerS)
 {
     disp.clear();
     
-    Serial.println("SpeedMPerS " + String(speedMPerS));
-
     if(speedMPerS > 1){
         disp.displayInt((int) speedMPerS);
     } else {
         int percent = floor(speedMPerS * 100);
-        // str pad
         disp.displayInt(percent);
         disp.display(1, 0);
         if(percent < 10){
