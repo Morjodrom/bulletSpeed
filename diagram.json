@@ -9,14 +9,14 @@
       "id": "btn1",
       "top": -70.6,
       "left": 86.4,
-      "attrs": { "color": "green" }
+      "attrs": { "color": "green", "bounce": "0" }
     },
     {
       "type": "wokwi-pushbutton",
       "id": "btn2",
       "top": -70.6,
       "left": 172.8,
-      "attrs": { "color": "green" }
+      "attrs": { "color": "green", "bounce": "0" }
     },
     {
       "type": "wokwi-resistor",

@@ -2,6 +2,9 @@
 
 #define PIN_SPEED_START 2
 #define PIN_SPEED_END 3
+#define DISTANCE_M 0.1
+
+#define DEBUG 1
 
 
 volatile unsigned long interruptedStart = 0;
@@ -22,10 +25,17 @@ void setup()
 void loop()
 {
     if(interruptedStart > 0 && interruptedEnd > 0){
+        unsigned long diff = calculateTimeDifference();
+        float speedMPerS = DISTANCE_M / (diff / 1000000.0f);
+
+        #ifdef DEBUG
         Serial.println();
-        Serial.println("Start " + String(interruptedStart / 1000));
-        Serial.println("End " + String(interruptedEnd / 1000));
-        Serial.println("Diff " + String(calculateTimeDifference() / 1000));
+        Serial.println("Start " + String(interruptedStart));
+        Serial.println("End " + String(interruptedEnd));
+        Serial.println("Diff " + String(calculateTimeDifference()));
+        Serial.println("Speed " + String(speedMPerS) + " m/s");
+        Serial.println();
+        #endif
         interruptedStart = 0;
         interruptedEnd = 0;
     }
